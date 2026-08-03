@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="meta.title">CareerGame — Gamificação de desenvolvimento de carreira</title>
+  <meta name="description" data-i18n-attr="content" data-i18n="meta.desc"
+        content="Plataforma white-label que gamifica PDI, skills e performance com trilhas, cards, pontos e análise de planos por IA." />
+  <link rel="icon" href="assets/icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="CareerGame">
+        <img src="assets/logo.png" alt="CareerGame" width="36" height="36" />
+        <span>Career<strong>Game</strong></span>
+      </a>
+      <nav class="nav" aria-label="Principal">
+        <a href="#how" data-i18n="nav.how">Como funciona</a>
+        <a href="#features" data-i18n="nav.features">Recursos</a>
+        <a href="#audience" data-i18n="nav.audience">Para quem</a>
+      </nav>
+      <div class="header-actions">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Change language">
+          <span class="lang-opt" data-lang="pt">PT</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-opt" data-lang="en">EN</span>
+        </button>
+        <a class="btn btn-primary btn-sm" href="mailto:gmrezende91@gmail.com?subject=Demo%20CareerGame" data-i18n="nav.cta">Agendar demo</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-i18n="hero.badge">Plataforma white-label de gamificação de carreira</span>
+          <h1 data-i18n="hero.title">Transforme o desenvolvimento de carreira em um jogo</h1>
+          <p class="lead" data-i18n="hero.sub">O CareerGame gamifica PDI, skills e performance — trilhas, cards, pontos e rankings que engajam times de verdade, com análise de planos por IA.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="mailto:gmrezende91@gmail.com?subject=Demo%20CareerGame" data-i18n="hero.cta1">Agendar demo</a>
+            <a class="btn btn-ghost" href="#how" data-i18n="hero.cta2">Ver como funciona</a>
+          </div>
+        </div>
+
+        <!-- CSS mockup -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="mock-card">
+            <div class="mock-head">
+              <div class="mock-avatar">🚀</div>
+              <div>
+                <div class="mock-name" data-i18n="mock.trail">Trilha · Backend</div>
+                <div class="mock-role" data-i18n="mock.role">Nível: Pleno → Sênior</div>
+              </div>
+              <div class="mock-points"><span>1.240</span> pts</div>
+            </div>
+            <div class="mock-row">
+              <span data-i18n="mock.skill1">APIs & Arquitetura</span>
+              <div class="bar"><i style="width:82%"></i></div>
+            </div>
+            <div class="mock-row">
+              <span data-i18n="mock.skill2">Testes & Qualidade</span>
+              <div class="bar"><i style="width:64%"></i></div>
+            </div>
+            <div class="mock-row">
+              <span data-i18n="mock.skill3">Cloud & Deploy</span>
+              <div class="bar"><i style="width:48%"></i></div>
+            </div>
+            <div class="mock-badges">
+              <span class="chip">🏅 <b data-i18n="mock.badge1">Mentor</b></span>
+              <span class="chip">🔥 <b data-i18n="mock.badge2">7 dias</b></span>
+              <span class="chip">⭐ <b data-i18n="mock.badge3">Top 3</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="section problem">
+      <div class="container narrow center">
+        <span class="eyebrow" data-i18n="problem.eyebrow">O problema</span>
+        <h2 data-i18n="problem.title">PDIs viram planilhas esquecidas</h2>
+        <p class="muted-lg" data-i18n="problem.text">Planos de desenvolvimento e avaliações de performance raramente engajam: sem feedback, sem progresso visível, sem motivação. O CareerGame vira esse jogo do avesso — cada avanço na carreira é visível, recompensado e divertido.</p>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow" data-i18n="how.eyebrow">Como funciona</span>
+          <h2 data-i18n="how.title">Do skill ao ranking, em quatro passos</h2>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <div class="step-num">1</div>
+            <h3 data-i18n="how.s1t">Skills</h3>
+            <p data-i18n="how.s1d">Mapeie as competências que importam para cada cargo e trilha de carreira.</p>
+          </li>
+          <li class="step">
+            <div class="step-num">2</div>
+            <h3 data-i18n="how.s2t">Cards</h3>
+            <p data-i18n="how.s2d">Cada skill vira cards de conhecimento e desafios práticos a serem completados.</p>
+          </li>
+          <li class="step">
+            <div class="step-num">3</div>
+            <h3 data-i18n="how.s3t">Trilhas</h3>
+            <p data-i18n="how.s3d">Os cards se organizam em trilhas de evolução por carreira e senioridade.</p>
+          </li>
+          <li class="step">
+            <div class="step-num">4</div>
+            <h3 data-i18n="how.s4t">Pontos &amp; Ranking</h3>
+            <p data-i18n="how.s4d">Cada avanço gera pontos, badges e rankings que criam hábito e engajamento.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section soft" id="features">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow" data-i18n="feat.eyebrow">Recursos</span>
+          <h2 data-i18n="feat.title">Feito para engajar e escalar</h2>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <div class="feature-icon">🏢</div>
+            <h3 data-i18n="feat.f1t">White-label multi-tenant</h3>
+            <p data-i18n="feat.f1d">Sua marca, suas cores, seu domínio. Cada empresa com seu próprio ambiente isolado.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">🤖</div>
+            <h3 data-i18n="feat.f2t">Análise por IA</h3>
+            <p data-i18n="feat.f2d">GPT-4o analisa planos individuais de desenvolvimento e sugere caminhos de evolução.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">🎮</div>
+            <h3 data-i18n="feat.f3t">Gamificação real</h3>
+            <p data-i18n="feat.f3d">Pontos, badges, rankings e trilhas que criam hábito e mantêm o time motivado.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">📚</div>
+            <h3 data-i18n="feat.f4t">Trilhas de conhecimento</h3>
+            <p data-i18n="feat.f4d">Conteúdo estruturado por competência, do onboarding ao nível sênior.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audience -->
+    <section class="section" id="audience">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow" data-i18n="aud.eyebrow">Para quem</span>
+          <h2 data-i18n="aud.title">Quem ganha com o CareerGame</h2>
+        </div>
+        <div class="audience">
+          <div class="aud-card">
+            <h3 data-i18n="aud.a1t">RH &amp; People</h3>
+            <p data-i18n="aud.a1d">Estruture PDI e performance com dados, trilhas claras e engajamento mensurável.</p>
+          </div>
+          <div class="aud-card">
+            <h3 data-i18n="aud.a2t">Líderes</h3>
+            <p data-i18n="aud.a2d">Acompanhe a evolução do time em tempo real e reconheça quem avança.</p>
+          </div>
+          <div class="aud-card">
+            <h3 data-i18n="aud.a3t">Empresas</h3>
+            <p data-i18n="aud.a3d">Retenha talentos transformando carreira em progresso visível e recompensado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section cta-band">
+      <div class="container center">
+        <h2 data-i18n="cta.title">Pronto para engajar seu time?</h2>
+        <p data-i18n="cta.text">Agende uma demonstração e veja o CareerGame funcionando com o contexto da sua empresa.</p>
+        <a class="btn btn-light" href="mailto:gmrezende91@gmail.com?subject=Demo%20CareerGame" data-i18n="cta.btn">Agendar demo</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#top">
+        <img src="assets/logo.png" alt="CareerGame" width="28" height="28" />
+        <span>Career<strong>Game</strong></span>
+      </a>
+      <p class="foot-tag" data-i18n="footer.tag">Gamificação de desenvolvimento de carreira.</p>
+      <p class="foot-copy">© <span id="year">2026</span> CareerGame</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
