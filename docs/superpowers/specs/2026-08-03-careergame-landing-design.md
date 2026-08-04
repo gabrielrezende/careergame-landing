@@ -1,7 +1,14 @@
-# CareerGame — Landing Page + Deploy AWS (Design)
+# CareerGame — Landing Page + Deploy (Design)
 
 **Data:** 2026-08-03
 **Repositório:** `careergame-landing`
+
+> **Adendo (migração AWS → GCP):** a conta AWS está bloqueada para criar CloudFront
+> (chamado aberto há +30 dias, sem solução). O deploy foi migrado para o **Google Cloud**:
+> GCS + Cloud Load Balancing (HTTPS) + Cloud CDN + SSL gerenciado + Cloud DNS. O DNS sai do
+> Route53 e vai para o Cloud DNS (re-delegação dos nameservers no Registro.br). Recursos AWS
+> criados (Route53 zone, ACM, bucket S3) ficam órfãos e serão removidos. Detalhes em
+> `infra/README.md`.
 
 ## Objetivo
 

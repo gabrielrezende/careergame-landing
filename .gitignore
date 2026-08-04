@@ -1,10 +1,15 @@
 # Terraform
 infra/.terraform/
 infra/.terraform.lock.hcl
-*.tfstate
-*.tfstate.*
-infra/tfplan
+infra/terraform.tfstate
+infra/terraform.tfstate.backup
+infra/*.tfvars
+!infra/*.tfvars.example
 crash.log
 
-# OS
+# Abandoned AWS state (kept locally for teardown reference only)
+.aws-legacy/
+
+# OS / editor
 .DS_Store
+Thumbs.db

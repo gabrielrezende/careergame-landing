@@ -1,24 +1,24 @@
 output "nameservers" {
-  description = "Set these 4 nameservers at your domain registrar (Registro.br) to delegate DNS to Route 53."
-  value       = aws_route53_zone.main.name_servers
+  description = "Cloud DNS nameservers. Set these at Registro.br (replacing the AWS ones)."
+  value       = google_dns_managed_zone.zone.name_servers
+}
+
+output "load_balancer_ip" {
+  description = "Global static IP the domain points to."
+  value       = google_compute_global_address.ip.address
 }
 
 output "bucket_name" {
-  description = "S3 bucket that stores the site content."
-  value       = aws_s3_bucket.site.bucket
+  description = "GCS bucket holding the site content."
+  value       = google_storage_bucket.site.name
 }
 
-output "cloudfront_distribution_id" {
-  description = "CloudFront distribution ID (used for cache invalidation)."
-  value       = aws_cloudfront_distribution.cdn.id
-}
-
-output "cloudfront_domain" {
-  description = "CloudFront default domain (works before DNS delegation)."
-  value       = aws_cloudfront_distribution.cdn.domain_name
+output "url_map_name" {
+  description = "HTTPS URL map name (used for Cloud CDN cache invalidation)."
+  value       = google_compute_url_map.https.name
 }
 
 output "website_url" {
-  description = "Final site URL once DNS is delegated."
+  description = "Final site URL once DNS is delegated and the cert is ACTIVE."
   value       = "https://${var.domain_name}"
 }

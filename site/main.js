@@ -1,8 +1,13 @@
-// ===== CareerGame landing — i18n toggle + niceties =====
+// Mark that JS is active (enables reveal animations without breaking no-JS).
+document.documentElement.classList.remove("no-js");
+document.documentElement.classList.add("js");
+
+// ===== i18n PT/EN dictionary =====
 const I18N = {
   pt: {
     "meta.title": "CareerGame — Gamificação de desenvolvimento de carreira",
     "meta.desc": "Plataforma white-label que gamifica PDI, skills e performance com trilhas, cards, pontos e análise de planos por IA.",
+    "a11y.skip": "Pular para o conteúdo",
     "nav.how": "Como funciona",
     "nav.features": "Recursos",
     "nav.audience": "Para quem",
@@ -59,6 +64,7 @@ const I18N = {
   en: {
     "meta.title": "CareerGame — Gamified career development",
     "meta.desc": "White-label platform that gamifies development plans, skills and performance with trails, cards, points and AI plan analysis.",
+    "a11y.skip": "Skip to content",
     "nav.how": "How it works",
     "nav.features": "Features",
     "nav.audience": "Who it's for",
@@ -129,12 +135,12 @@ function applyLang(lang) {
   document.querySelectorAll(".lang-opt").forEach((o) =>
     o.classList.toggle("active", o.dataset.lang === lang)
   );
-  try { localStorage.setItem("cg_lang", lang); } catch (e) {}
+  try { localStorage.setItem("lang", lang); } catch (e) {}
 }
 
 function initLang() {
   let lang = null;
-  try { lang = localStorage.getItem("cg_lang"); } catch (e) {}
+  try { lang = localStorage.getItem("lang"); } catch (e) {}
   if (lang !== "pt" && lang !== "en") {
     lang = (navigator.language || "").toLowerCase().startsWith("en") ? "en" : "pt";
   }
@@ -148,8 +154,31 @@ function initLang() {
   }
 }
 
+// Reveal on scroll, respecting prefers-reduced-motion.
+function initReveal() {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const els = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("in"));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { rootMargin: "0px 0px -10% 0px" }
+  );
+  els.forEach((el) => io.observe(el));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initLang();
+  initReveal();
   const y = document.getElementById("year");
   if (y) y.textContent = String(new Date().getFullYear());
 });
