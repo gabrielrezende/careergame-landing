@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-i18n="meta.title">CareerGame — Gamificação de desenvolvimento de carreira</title>
+<title data-i18n="meta.title">CareerGame — Desenvolvimento de carreira gamificado</title>
 <meta name="description" data-i18n="meta.desc" data-i18n-attr="content"
-      content="Plataforma white-label que gamifica PDI, skills e performance com trilhas, cards, pontos e análise de planos por IA.">
+      content="Plataforma white-label de desenvolvimento de carreira gamificado: trilhas de skills prontas por área, PDIs guiados por IA, pontos e rankings. No ar em dias.">
 
-<meta property="og:title" content="CareerGame — Gamificação de desenvolvimento de carreira">
-<meta property="og:description" content="Plataforma white-label que gamifica PDI, skills e performance com trilhas, cards, pontos e análise de planos por IA.">
+<meta property="og:title" content="CareerGame — Desenvolvimento de carreira gamificado">
+<meta property="og:description" content="Trilhas de skills prontas por área, PDIs guiados por IA, pontos e rankings. White-label, no ar em dias.">
 <meta property="og:image" content="assets/icon-512.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -32,29 +32,30 @@
     <span>Career<strong>Game</strong></span>
   </a>
   <div class="nav-links">
+    <a class="nav-link" href="#trilhas" data-i18n="nav.trails">Trilhas</a>
     <a class="nav-link" href="#como" data-i18n="nav.how">Como funciona</a>
     <a class="nav-link" href="#features" data-i18n="nav.features">Recursos</a>
-    <a class="nav-link" href="#para-quem" data-i18n="nav.audience">Para quem</a>
+    <a class="nav-link" href="#planos" data-i18n="nav.pricing">Preços</a>
   </div>
   <div class="nav-actions">
+    <a class="btn primary sm demo-link" href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Solicita%C3%A7%C3%A3o%20de%20demonstra%C3%A7%C3%A3o&body=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20CareerGame." data-i18n="nav.cta">Agendar demo</a>
     <button class="lang-toggle" id="langToggle" type="button" aria-label="Change language">
       <span class="lang-opt" data-lang="pt">PT</span>
       <span class="lang-sep">/</span>
       <span class="lang-opt" data-lang="en">EN</span>
     </button>
-    <a class="btn primary sm" href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Solicita%C3%A7%C3%A3o%20de%20demonstra%C3%A7%C3%A3o&body=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20CareerGame." data-i18n="nav.cta">Agendar demo</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-text">
-      <p class="eyebrow" data-i18n="hero.badge">Plataforma white-label de gamificação de carreira</p>
-      <h1 class="display" data-i18n="hero.title">Transforme o desenvolvimento de carreira em um jogo</h1>
-      <p class="hero-sub" data-i18n="hero.sub">O CareerGame gamifica PDI, skills e performance — trilhas, cards, pontos e rankings que engajam times de verdade, com análise de planos por IA.</p>
+      <p class="eyebrow" data-i18n="hero.badge">Plataforma white-label de carreira gamificada</p>
+      <h1 class="display" data-i18n="hero.title">Transforme carreira em jogo — e engajamento em resultado.</h1>
+      <p class="hero-sub" data-i18n="hero.sub" data-i18n-html>O CareerGame é a plataforma white-label de desenvolvimento de carreira gamificado: trilhas de skills <strong>prontas</strong> por área, PDIs guiados por IA e rankings que fazem o time evoluir de verdade. No ar em dias, não meses.</p>
       <div class="hero-cta">
-        <a class="btn primary" href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Solicita%C3%A7%C3%A3o%20de%20demonstra%C3%A7%C3%A3o&body=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20CareerGame." data-i18n="hero.cta1">Agendar demo</a>
-        <a class="btn ghost" href="#como" data-i18n="hero.cta2">Ver como funciona</a>
+        <a class="btn primary demo-link" href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Solicita%C3%A7%C3%A3o%20de%20demonstra%C3%A7%C3%A3o&body=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20CareerGame." data-i18n="hero.cta1">Agendar demo</a>
+        <a class="btn ghost" href="#trilhas" data-i18n="hero.cta2">Ver trilhas prontas</a>
       </div>
     </div>
 
@@ -91,13 +92,24 @@
   </div>
 </header>
 
+<!-- Social proof strip -->
+<div class="proof" aria-label="Prova social">
+  <div class="proof-inner">
+    <p class="proof-lead" data-i18n="proof.lead">Junte-se aos primeiros times que estão transformando carreira em progresso visível.</p>
+    <div class="proof-logos" aria-hidden="true">
+      <span class="logo-ghost"></span><span class="logo-ghost"></span><span class="logo-ghost"></span>
+      <span class="logo-ghost"></span><span class="logo-ghost"></span>
+    </div>
+  </div>
+</div>
+
 <main id="main">
 
   <!-- Problem / pain -->
   <section class="section center reveal" aria-labelledby="dor-h2">
     <p class="eyebrow" data-i18n="problem.eyebrow">O problema</p>
-    <h2 class="display" id="dor-h2" data-i18n="problem.title">PDIs viram planilhas esquecidas</h2>
-    <p data-i18n="problem.text">Planos de desenvolvimento e avaliações de performance raramente engajam: sem feedback, sem progresso visível, sem motivação. O CareerGame vira esse jogo do avesso — cada avanço na carreira é visível, recompensado e divertido.</p>
+    <h2 class="display" id="dor-h2" data-i18n="problem.title">PDI que ninguém abre custa caro.</h2>
+    <p data-i18n="problem.text">Plano de desenvolvimento em planilha esquecida vira rampa lenta, promoção sem critério e talento que vai embora. O CareerGame vira esse jogo do avesso: cada avanço na carreira é visível, recompensado e mensurável — e o RH enxerga tudo.</p>
   </section>
 
   <!-- How it works — 4 steps -->
@@ -130,63 +142,335 @@
     </ol>
   </section>
 
-  <!-- Features — 4 -->
-  <section class="section soft reveal" id="features" aria-labelledby="feat-h2">
+  <!-- ★ Ready-made trails — the differentiator -->
+  <section class="section soft reveal" id="trilhas" aria-labelledby="trilhas-h2">
+    <div class="section-head center">
+      <p class="eyebrow" data-i18n="trails.eyebrow">Diferencial</p>
+      <h2 class="display" id="trilhas-h2" data-i18n="trails.title">As trilhas já vêm prontas. Você só edita.</h2>
+      <p data-i18n="trails.text">Não construa sua arquitetura de carreira do zero — isso leva meses. O CareerGame entrega trilhas prontas por área, do Júnior ao Principal, com competências e desafios. Adote hoje, ajuste ao seu jeito amanhã.</p>
+    </div>
+
+    <div class="area-grid">
+      <span class="area-chip">💻 <b data-i18n="trails.a1">Backend</b></span>
+      <span class="area-chip">🎨 <b data-i18n="trails.a2">Frontend</b></span>
+      <span class="area-chip">💚 <b data-i18n="trails.a3">Customer Success</b></span>
+      <span class="area-chip">📈 <b data-i18n="trails.a4">Vendas</b></span>
+      <span class="area-chip">🎧 <b data-i18n="trails.a5">Suporte</b></span>
+      <span class="area-chip">🧭 <b data-i18n="trails.a6">Produto</b></span>
+      <span class="area-chip">📊 <b data-i18n="trails.a7">Dados</b></span>
+      <span class="area-chip">📣 <b data-i18n="trails.a8">Marketing</b></span>
+    </div>
+
+    <div class="ladder" aria-hidden="true">
+      <span class="ladder-step" data-i18n="trails.l1">Júnior</span>
+      <span class="ladder-arrow">→</span>
+      <span class="ladder-step" data-i18n="trails.l2">Pleno</span>
+      <span class="ladder-arrow">→</span>
+      <span class="ladder-step" data-i18n="trails.l3">Sênior</span>
+      <span class="ladder-arrow">→</span>
+      <span class="ladder-step" data-i18n="trails.l4">Staff</span>
+      <span class="ladder-arrow">→</span>
+      <span class="ladder-step" data-i18n="trails.l5">Principal</span>
+    </div>
+    <p class="trails-note center" data-i18n="trails.note">Cada competência é editável: adapte níveis, cards e pontos à realidade da sua empresa.</p>
+  </section>
+
+  <!-- ★ AI section -->
+  <section class="section reveal" id="ia" aria-labelledby="ia-h2">
+    <div class="ai-wrap">
+      <div class="ai-text">
+        <p class="eyebrow" data-i18n="ai.eyebrow">Inteligência artificial</p>
+        <h2 class="display" id="ia-h2" data-i18n="ai.title">Uma IA que monta o plano — e já sabe o próximo passo.</h2>
+        <p data-i18n="ai.text">A IA do CareerGame lê o PDI, identifica o gap de skills e já atribui as trilhas e os cards certos — depois acompanha o progresso e sugere o próximo movimento de carreira. Coaching e execução no mesmo lugar.</p>
+      </div>
+      <ol class="ai-flow">
+        <li class="ai-node">
+          <span class="ai-ico" aria-hidden="true">📄</span>
+          <div><b data-i18n="ai.s1t">Lê o PDI</b><span data-i18n="ai.s1d">Analisa metas, cargo e histórico do colaborador.</span></div>
+        </li>
+        <li class="ai-node">
+          <span class="ai-ico" aria-hidden="true">🎯</span>
+          <div><b data-i18n="ai.s2t">Atribui trilhas e cards</b><span data-i18n="ai.s2d">Fecha o gap com o conteúdo certo, no nível certo.</span></div>
+        </li>
+        <li class="ai-node">
+          <span class="ai-ico" aria-hidden="true">📈</span>
+          <div><b data-i18n="ai.s3t">Acompanha e sugere</b><span data-i18n="ai.s3d">Mede o progresso e recomenda o próximo passo de carreira.</span></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ★ Product preview -->
+  <section class="section soft reveal" id="produto" aria-labelledby="prod-h2">
+    <div class="section-head center">
+      <p class="eyebrow" data-i18n="prod.eyebrow">Veja o produto</p>
+      <h2 class="display" id="prod-h2" data-i18n="prod.title">Progresso que dá pra ver</h2>
+      <p data-i18n="prod.text">Do card ao ranking, cada avanço aparece — para o colaborador, para o líder e para o RH.</p>
+    </div>
+
+    <div class="product-gallery">
+      <!-- Leaderboard mock -->
+      <figure class="prod-mock">
+        <div class="mock-card">
+          <div class="mock-head">
+            <div class="mock-avatar">🏆</div>
+            <div>
+              <div class="mock-title" data-i18n="prod.m1t">Ranking · Squad Alpha</div>
+              <div class="mock-sub" data-i18n="prod.m1s">Esta semana</div>
+            </div>
+          </div>
+          <ul class="rank-list" aria-hidden="true">
+            <li><span class="rank-pos">1</span> Marina S. <b>1.940</b></li>
+            <li><span class="rank-pos">2</span> Diego R. <b>1.710</b></li>
+            <li class="rank-me"><span class="rank-pos">3</span> <span data-i18n="prod.m1me">Você</span> <b>1.240</b></li>
+            <li><span class="rank-pos">4</span> Ana P. <b>980</b></li>
+          </ul>
+          <div class="mock-chips">
+            <span class="chip">🔥 <b data-i18n="prod.m1c">Streak 7d</b></span>
+            <span class="chip">⭐ <b data-i18n="mock.badge3">Top 3</b></span>
+          </div>
+        </div>
+        <figcaption data-i18n="prod.m1cap">Ranking do time</figcaption>
+      </figure>
+
+      <!-- AI insight mock -->
+      <figure class="prod-mock">
+        <div class="mock-card">
+          <div class="mock-head">
+            <div class="mock-avatar">🤖</div>
+            <div>
+              <div class="mock-title" data-i18n="prod.m2t">Análise de IA · PDI</div>
+              <div class="mock-sub" data-i18n="prod.m2s">Backend · Pleno</div>
+            </div>
+          </div>
+          <p class="ai-insight" data-i18n="prod.m2body" data-i18n-html>“Gap identificado em <b>Cloud &amp; Deploy</b>. Atribuí a trilha de infraestrutura e 3 desafios. Próximo passo: liderar um deploy de produção.”</p>
+          <div class="mock-chips">
+            <span class="chip">🎯 <b data-i18n="prod.m2c1">2 trilhas</b></span>
+            <span class="chip">🧩 <b data-i18n="prod.m2c2">3 cards</b></span>
+          </div>
+        </div>
+        <figcaption data-i18n="prod.m2cap">Análise de IA do PDI</figcaption>
+      </figure>
+
+      <!-- Manager dashboard mock -->
+      <figure class="prod-mock">
+        <div class="mock-card">
+          <div class="mock-head">
+            <div class="mock-avatar">📊</div>
+            <div>
+              <div class="mock-title" data-i18n="prod.m3t">Painel do gestor</div>
+              <div class="mock-sub" data-i18n="prod.m3s">Skills do time</div>
+            </div>
+          </div>
+          <div class="mock-row">
+            <span data-i18n="prod.m3r1">Cobertura de skills</span>
+            <div class="bar"><i style="width:73%"></i></div>
+          </div>
+          <div class="mock-row">
+            <span data-i18n="prod.m3r2">Engajamento em PDI</span>
+            <div class="bar"><i style="width:88%"></i></div>
+          </div>
+          <div class="mock-row">
+            <span data-i18n="prod.m3r3">Prontos p/ promoção</span>
+            <div class="bar"><i style="width:41%"></i></div>
+          </div>
+        </div>
+        <figcaption data-i18n="prod.m3cap">Painel do gestor</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Features — 4 (benefit-oriented) -->
+  <section class="section reveal" id="features" aria-labelledby="feat-h2">
     <div class="section-head center">
       <p class="eyebrow" data-i18n="feat.eyebrow">Recursos</p>
       <h2 class="display" id="feat-h2" data-i18n="feat.title">Feito para engajar e escalar</h2>
     </div>
     <div class="features">
       <article class="card feature">
-        <div class="feature-icon" aria-hidden="true">🏢</div>
-        <h3 class="card-title" data-i18n="feat.f1t">White-label multi-tenant</h3>
-        <p data-i18n="feat.f1d">Sua marca, suas cores, seu domínio. Cada empresa com seu próprio ambiente isolado.</p>
+        <div class="feature-icon" aria-hidden="true">⚡</div>
+        <h3 class="card-title" data-i18n="feat.f1t">No ar em dias</h3>
+        <p data-i18n="feat.f1d">Trilhas prontas por área eliminam meses de montagem. Comece com uma base sólida e ajuste depois.</p>
       </article>
       <article class="card feature">
         <div class="feature-icon" aria-hidden="true">🤖</div>
-        <h3 class="card-title" data-i18n="feat.f2t">Análise por IA</h3>
-        <p data-i18n="feat.f2d">GPT-4o analisa planos individuais de desenvolvimento e sugere caminhos de evolução.</p>
+        <h3 class="card-title" data-i18n="feat.f2t">IA que executa</h3>
+        <p data-i18n="feat.f2d">A IA lê o PDI, atribui trilhas e mede progresso — não é chat, é workflow de desenvolvimento.</p>
       </article>
       <article class="card feature">
         <div class="feature-icon" aria-hidden="true">🎮</div>
-        <h3 class="card-title" data-i18n="feat.f3t">Gamificação real</h3>
-        <p data-i18n="feat.f3d">Pontos, badges, rankings e trilhas que criam hábito e mantêm o time motivado.</p>
+        <h3 class="card-title" data-i18n="feat.f3t">Gamificação de carreira</h3>
+        <p data-i18n="feat.f3d">Pontos, badges e rankings ligados à evolução real de cargo — não a KPI de vendas ou conclusão de curso.</p>
       </article>
       <article class="card feature">
-        <div class="feature-icon" aria-hidden="true">📚</div>
-        <h3 class="card-title" data-i18n="feat.f4t">Trilhas de conhecimento</h3>
-        <p data-i18n="feat.f4d">Conteúdo estruturado por competência, do onboarding ao nível sênior.</p>
+        <div class="feature-icon" aria-hidden="true">🏢</div>
+        <h3 class="card-title" data-i18n="feat.f4t">White-label multi-tenant</h3>
+        <p data-i18n="feat.f4d">Sua marca, suas cores, seu domínio. Cada empresa com seu ambiente isolado.</p>
       </article>
     </div>
   </section>
 
-  <!-- Audience — 3 cards -->
-  <section class="section reveal" id="para-quem" aria-labelledby="aud-h2">
+  <!-- ★ White-label -->
+  <section class="section reveal" id="whitelabel" aria-labelledby="wl-h2">
+    <div class="wl-wrap">
+      <div class="wl-text">
+        <p class="eyebrow" data-i18n="wl.eyebrow">White-label</p>
+        <h2 class="display" id="wl-h2" data-i18n="wl.title">Sua marca. Seu domínio. Seu jogo.</h2>
+        <p data-i18n="wl.text">White-label multi-tenant de verdade: cada empresa com marca, cores, domínio próprio e ambiente isolado.</p>
+        <ul class="wl-list">
+          <li data-i18n="wl.b1">Marca e domínio próprios, ponta a ponta</li>
+          <li data-i18n="wl.b2">Ambiente isolado por empresa (multi-tenant)</li>
+          <li data-i18n="wl.b3">Ideal para grupos com várias marcas e para consultorias que querem lançar sua própria academia gamificada</li>
+        </ul>
+      </div>
+      <div class="wl-visual" aria-hidden="true">
+        <div class="wl-tenant t1" data-i18n="wl.tenant1">Sua Marca</div>
+        <div class="wl-tenant t2">Brand B</div>
+        <div class="wl-tenant t3">Brand C</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audience — 3 cards (sharpened) -->
+  <section class="section soft reveal" id="para-quem" aria-labelledby="aud-h2">
     <div class="section-head center">
       <p class="eyebrow" data-i18n="aud.eyebrow">Para quem</p>
       <h2 class="display" id="aud-h2" data-i18n="aud.title">Quem ganha com o CareerGame</h2>
     </div>
     <div class="cards">
       <div class="card aud">
-        <h3 class="card-title" data-i18n="aud.a1t">RH &amp; People</h3>
-        <p data-i18n="aud.a1d">Estruture PDI e performance com dados, trilhas claras e engajamento mensurável.</p>
+        <h3 class="card-title" data-i18n="aud.a1t">RH &amp; L&amp;D</h3>
+        <p data-i18n="aud.a1d">Estruture PDI e performance com dados, trilhas claras e engajamento mensurável — sem projeto de meses.</p>
       </div>
       <div class="card aud">
         <h3 class="card-title" data-i18n="aud.a2t">Líderes</h3>
         <p data-i18n="aud.a2d">Acompanhe a evolução do time em tempo real e reconheça quem avança.</p>
       </div>
       <div class="card aud">
-        <h3 class="card-title" data-i18n="aud.a3t">Empresas</h3>
-        <p data-i18n="aud.a3d">Retenha talentos transformando carreira em progresso visível e recompensado.</p>
+        <h3 class="card-title" data-i18n="aud.a3t">Colaboradores</h3>
+        <p data-i18n="aud.a3d">Veja exatamente o que fazer para crescer — com progresso visível e recompensado.</p>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA — mailto -->
+  <!-- ★ Outcome levers (honest, no fake numbers) -->
+  <section class="section center reveal" aria-labelledby="res-h2">
+    <p class="eyebrow" data-i18n="results.eyebrow">Impacto</p>
+    <h2 class="display" id="res-h2" data-i18n="results.title">As alavancas que o CareerGame move</h2>
+    <p data-i18n="results.text">O que a gamificação de carreira ajuda o seu RH a melhorar:</p>
+    <div class="levers">
+      <div class="lever">
+        <span class="lever-ico" aria-hidden="true">🔁</span>
+        <h3 data-i18n="results.k1t">Retenção de talentos</h3>
+        <p data-i18n="results.k1d">Carreira visível e recompensada dá motivo para ficar.</p>
+      </div>
+      <div class="lever">
+        <span class="lever-ico" aria-hidden="true">🚀</span>
+        <h3 data-i18n="results.k2t">Tempo de rampa</h3>
+        <p data-i18n="results.k2d">Trilhas de onboarding levam do zero ao produtivo mais rápido.</p>
+      </div>
+      <div class="lever">
+        <span class="lever-ico" aria-hidden="true">🧭</span>
+        <h3 data-i18n="results.k3t">Mobilidade interna</h3>
+        <p data-i18n="results.k3d">Skills mapeadas revelam quem já está pronto para o próximo passo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ Pricing -->
+  <section class="section reveal" id="planos" aria-labelledby="plan-h2">
+    <div class="section-head center">
+      <p class="eyebrow" data-i18n="pricing.eyebrow">Planos</p>
+      <h2 class="display" id="plan-h2" data-i18n="pricing.title">Preço simples, por colaborador</h2>
+      <p data-i18n="pricing.text">Cobrança anual. Piloto pago creditável no contrato. Preços em dólar por colaborador/mês.</p>
+    </div>
+
+    <div class="plans">
+      <div class="plan">
+        <h3 class="plan-name" data-i18n="pricing.p1name">Starter</h3>
+        <p class="plan-price"><span class="plan-cur">US$</span><span class="plan-val" data-i18n="pricing.p1val">6</span><span class="plan-per" data-i18n="pricing.per">/colab/mês</span></p>
+        <p class="plan-desc" data-i18n="pricing.p1desc">Para começar a gamificar carreira.</p>
+        <ul class="plan-feats">
+          <li data-i18n="pricing.p1f1">Gamificação (pontos, badges, ranking)</li>
+          <li data-i18n="pricing.p1f2">1 pacote de trilhas incluso</li>
+          <li data-i18n="pricing.p1f3">White-label: logo e cores</li>
+        </ul>
+        <a class="btn ghost demo-link" href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Plano%20Starter&body=Ol%C3%A1%2C%20tenho%20interesse%20no%20plano%20Starter%20do%20CareerGame." data-i18n="pricing.cta">Começar</a>
+      </div>
+
+      <div class="plan featured">
+        <p class="plan-flag" data-i18n="pricing.flag">Mais popular</p>
+        <h3 class="plan-name" data-i18n="pricing.p2name">Growth</h3>
+        <p class="plan-price"><span class="plan-cur">US$</span><span class="plan-val" data-i18n="pricing.p2val">12</span><span class="plan-per" data-i18n="pricing.per">/colab/mês</span></p>
+        <p class="plan-desc" data-i18n="pricing.p2desc">Carreira, PDI e IA para o time inteiro.</p>
+        <ul class="plan-feats">
+          <li data-i18n="pricing.p2f1">Tudo do Starter +</li>
+          <li data-i18n="pricing.p2f2">Framework de competências + PDI</li>
+          <li data-i18n="pricing.p2f3">IA de análise de PDI (limitada)</li>
+          <li data-i18n="pricing.p2f4">2 pacotes + subdomínio próprio</li>
+        </ul>
+        <a class="btn primary demo-link" href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Plano%20Growth&body=Ol%C3%A1%2C%20tenho%20interesse%20no%20plano%20Growth%20do%20CareerGame." data-i18n="pricing.cta2">Agendar demo</a>
+      </div>
+
+      <div class="plan">
+        <h3 class="plan-name" data-i18n="pricing.p3name">Performance</h3>
+        <p class="plan-price"><span class="plan-cur">US$</span><span class="plan-val" data-i18n="pricing.p3val">18</span><span class="plan-per" data-i18n="pricing.per">/colab/mês</span></p>
+        <p class="plan-desc" data-i18n="pricing.p3desc">IA ilimitada e white-label completo.</p>
+        <ul class="plan-feats">
+          <li data-i18n="pricing.p3f1">Tudo do Growth +</li>
+          <li data-i18n="pricing.p3f2">IA de análise de PDI ilimitada</li>
+          <li data-i18n="pricing.p3f3">White-label completo + domínio próprio</li>
+          <li data-i18n="pricing.p3f4">3 pacotes + API + CSM prioritário</li>
+        </ul>
+        <a class="btn ghost demo-link" href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Plano%20Performance&body=Ol%C3%A1%2C%20tenho%20interesse%20no%20plano%20Performance%20do%20CareerGame." data-i18n="pricing.cta">Começar</a>
+      </div>
+    </div>
+
+    <div class="plan-enterprise">
+      <div>
+        <h3 class="plan-name" data-i18n="pricing.entName">Enterprise</h3>
+        <p data-i18n="pricing.entDesc">SSO/SCIM, UI customizada, todos os pacotes, CSM dedicado e SLA. Para 500+ colaboradores.</p>
+      </div>
+      <a class="btn primary demo-link" href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Enterprise&body=Ol%C3%A1%2C%20gostaria%20de%20falar%20sobre%20o%20plano%20Enterprise%20do%20CareerGame." data-i18n="pricing.entCta">Fale com vendas</a>
+    </div>
+  </section>
+
+  <!-- ★ FAQ -->
+  <section class="section reveal" id="faq" aria-labelledby="faq-h2">
+    <div class="section-head center">
+      <p class="eyebrow" data-i18n="faq.eyebrow">Dúvidas</p>
+      <h2 class="display" id="faq-h2" data-i18n="faq.title">Perguntas frequentes</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary data-i18n="faq.q1">Gamificação gera desenvolvimento real ou só engajamento vazio?</summary>
+        <p data-i18n="faq.a1">O jogo é atrelado à carreira: cada ponto vem de uma competência real da trilha do cargo. O RH acompanha rampa, mobilidade interna e retenção — não só cliques.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq.q2">As trilhas prontas são editáveis?</summary>
+        <p data-i18n="faq.a2">Sim. As trilhas vêm prontas por área, mas a competência é a unidade editável: ajuste níveis, cards e pontos ao seu contexto.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq.q3">Integra com o meu HRIS?</summary>
+        <p data-i18n="faq.a3">Sim — via integrações de HRIS (BambooHR, HiBob e outros) e SSO/SCIM (Entra ID, Google, Okta) para provisionar times automaticamente.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq.q4">É seguro?</summary>
+        <p data-i18n="faq.a4">Isolamento multi-tenant por empresa, SSO/SCIM e controle de acesso. Certificações de segurança no roadmap.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-i18n="faq.q5">Quanto tempo até ir ao ar?</summary>
+        <p data-i18n="faq.a5">Dias, não meses — porque as trilhas já vêm prontas. Você adota a base e personaliza em paralelo.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Closing — final call-to-action -->
   <section class="section band reveal" aria-labelledby="cta-h2">
-    <h2 class="display" id="cta-h2" data-i18n="cta.title">Pronto para engajar seu time?</h2>
-    <p data-i18n="cta.text">Agende uma demonstração e veja o CareerGame funcionando com o contexto da sua empresa.</p>
-    <a class="btn light" href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Solicita%C3%A7%C3%A3o%20de%20demonstra%C3%A7%C3%A3o&body=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20CareerGame." data-i18n="cta.btn">Agendar demo</a>
+    <p class="eyebrow" data-i18n="cta.eyebrow">Vamos começar</p>
+    <h2 class="display" id="cta-h2" data-i18n="cta.title">Pronto para transformar carreira em jogo?</h2>
+    <p data-i18n="cta.text">Veja o CareerGame com as trilhas da sua área, PDIs guiados por IA e rankings que engajam — no ar em dias.</p>
+    <a class="btn light demo-link" href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Solicita%C3%A7%C3%A3o%20de%20demonstra%C3%A7%C3%A3o&body=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20CareerGame." data-i18n="cta.btn">Agendar demo</a>
   </section>
 
 </main>
@@ -196,7 +480,7 @@
     <img src="assets/logo.png" alt="" width="26" height="26">
     <span>Career<strong>Game</strong></span>
   </a>
-  <p class="foot-tag" data-i18n="footer.tag">Gamificação de desenvolvimento de carreira.</p>
+  <p class="foot-tag" data-i18n="footer.tag">Desenvolvimento de carreira gamificado.</p>
   <p class="foot-copy">© <span id="year">2026</span> CareerGame</p>
 </footer>
 
