@@ -10,6 +10,7 @@
 3. [Parceiros & Go-to-Market](03-parceiros-e-gtm.md) — integrações, marketplaces, conteúdo e a sequência de GTM para 12 meses.
 4. [Trilhas Prontas — Blueprint](04-trilhas-prontas-blueprint.md) — taxonomias, modelo de dados e 2 pacotes 100% prontos (Backend, CS).
 5. [Reformulação da Landing](05-landing-redesign.md) — nova estrutura, copy PT/EN e mockups de tela.
+6. [Diagnóstico do Produto (app)](06-diagnostico-app.md) — o que tcg-api/tcg-app já entregam, os gaps vs. estratégia e o roadmap (inclui o bloqueador de migração).
 
 ---
 
