@@ -1,14 +1,16 @@
 terraform {
   required_version = ">= 1.6"
   required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "~> 6.0"
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
     }
   }
 }
 
-provider "google" {
-  project = var.project_id
-  region  = var.region
+provider "aws" {
+  region = "us-east-1" # CloudFront requires the ACM cert in us-east-1; keep the whole stack here.
+  default_tags {
+    tags = var.tags
+  }
 }

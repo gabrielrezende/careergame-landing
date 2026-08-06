@@ -1,3 +1,4 @@
+
 # Terraform
 infra/.terraform/
 infra/.terraform.lock.hcl
@@ -5,11 +6,21 @@ infra/terraform.tfstate
 infra/terraform.tfstate.backup
 infra/*.tfvars
 !infra/*.tfvars.example
+infra/*.log
 crash.log
 
-# Abandoned AWS state (kept locally for teardown reference only)
-.aws-legacy/
+# Firebase (fallback antigo — não usado)
+.firebase/
 
 # OS / editor
 .DS_Store
 Thumbs.db
+
+# Deploy credentials — NEVER commit
+*-key.json
+deploy-key.json
+.aws-deploy-credentials
+
+# Legacy infra (referência)
+.gcp-legacy/
+.aws-legacy/

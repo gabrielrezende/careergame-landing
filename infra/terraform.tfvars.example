@@ -1,3 +1,0 @@
-# Copie para terraform.tfvars e preencha com o seu projeto GCP.
-project_id = "SEU_PROJECT_ID_AQUI"
-# domain_name = "careergame.com.br"   # já é o default

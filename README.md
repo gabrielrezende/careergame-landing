@@ -1,55 +1,58 @@
 # careergame-landing
 
 Landing institucional do **CareerGame** — publicada em `https://careergame.com.br` como site
-estático via **Google Cloud Storage + Cloud Load Balancing + Cloud CDN + SSL gerenciado +
-Cloud DNS**, provisionado com **Terraform**.
+estático na **AWS**: bucket **S3 privado** atrás do **CloudFront (OAC)** com **HTTPS/ACM** e
+**Route53**, provisionado com **Terraform** (`us-east-1`).
 
 ## Estrutura
 
 ```
-site/      conteúdo estático (index.html, styles.css, main.js, assets/)
-infra/     Terraform (GCS + Load Balancer HTTPS + Cloud CDN + ACM gerenciado + Cloud DNS)
-deploy.sh  sync do site/ para o GCS + invalidação do Cloud CDN
+site/          conteúdo estático (index.html, styles.css, main.js, assets/)
+infra/         Terraform (S3 privado + CloudFront/OAC + ACM + Route53)
+deploy.sh      aws s3 sync + invalidação do CloudFront
+.gcp-legacy/   config Firebase antiga (fallback) — não usada
+.aws-legacy/   state AWS de uma migração anterior — só referência
 ```
 
 ## Pré-requisitos
 
-- `gcloud` CLI autenticado (`gcloud auth login` + `application-default login`).
-- Projeto GCP com **faturamento habilitado** (necessário para o Load Balancer).
+- AWS CLI configurada (`aws configure`) na conta certa, região `us-east-1`.
 - Terraform ≥ 1.6.
-- Domínio `careergame.com.br` no registrador (Registro.br).
+- Domínio `careergame.com.br` no Registro.br.
 
-Passo a passo completo de configuração: **[infra/README.md](infra/README.md)**.
-
-## Deploy (resumo)
-
-O certificado SSL só valida após o domínio ser delegado ao Cloud DNS → provisionamento em
-**duas fases**.
+## Deploy (2 fases — o ACM só valida após delegar o DNS ao Route53)
 
 ```bash
-# Fase A — criar a zona DNS e obter os nameservers
-make zone
-# → delegar os nameservers no Registro.br, aguardar propagação (dig +short NS careergame.com.br)
+terraform -chdir=infra init
+```
 
-# Fase B — bucket + Load Balancer + CDN + SSL + DNS
-make apply
+**Fase A — criar a zona e pegar os nameservers:**
 
-# Publicar o conteúdo
+```bash
+terraform -chdir=infra apply -target=aws_route53_zone.this
+terraform -chdir=infra output route53_nameservers
+```
+
+Cadastre os **4 nameservers** no Registro.br. Aguarde a propagação:
+
+```bash
+dig +short NS careergame.com.br   # deve retornar os awsdns-*
+```
+
+**Fase B — aplicar o resto (ACM valida, CloudFront sobe):**
+
+```bash
+terraform -chdir=infra apply
 ./deploy.sh
 ```
 
-O `www` faz 301 para o apex. O HTTPS no domínio fica disponível quando o certificado
-gerenciado vira `ACTIVE` (~15–60 min após o DNS resolver).
+O `www` faz 301 para o apex (CloudFront Function). Acesse `https://careergame.com.br`.
 
 ## Atualizar o site
 
-Edite os arquivos em `site/` e rode:
+Edite `site/` e rode `./deploy.sh`.
 
-```bash
-./deploy.sh
-```
-
-## Destruir tudo
+## Destruir
 
 ```bash
 make destroy

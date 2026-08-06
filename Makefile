@@ -1,6 +1,6 @@
 TF := terraform -chdir=infra
 
-.PHONY: init fmt validate plan zone apply outputs deploy destroy
+.PHONY: init fmt validate plan apply outputs deploy destroy
 
 init:
 	$(TF) init
@@ -14,12 +14,6 @@ validate:
 plan:
 	$(TF) plan
 
-# Phase A: create only the Cloud DNS zone, then delegate the nameservers.
-zone:
-	$(TF) apply -target=google_dns_managed_zone.zone
-	@echo "Set these nameservers at Registro.br:"; $(TF) output nameservers
-
-# Phase B: create the bucket, load balancer, CDN, cert and DNS records.
 apply:
 	$(TF) apply
 
@@ -27,13 +21,15 @@ outputs:
 	$(TF) output
 
 deploy:
-	@BUCKET=$$($(TF) output -raw bucket_name); \
-	URLMAP=$$($(TF) output -raw url_map_name); \
-	echo "Sync -> gs://$$BUCKET"; \
-	gcloud storage rsync site/ gs://$$BUCKET --recursive --delete-unmatched-destination-objects; \
-	echo "Invalidating Cloud CDN $$URLMAP"; \
-	gcloud compute url-maps invalidate-cdn-cache $$URLMAP --path '/*' --async; \
-	echo "OK. https://careergame.com.br"
+	@BUCKET=$$($(TF) output -raw s3_bucket_name); \
+	DIST=$$($(TF) output -raw cloudfront_distribution_id); \
+	echo "Sync -> s3://$$BUCKET"; \
+	aws s3 sync site/ s3://$$BUCKET --delete; \
+	echo "Invalidating CloudFront $$DIST"; \
+	aws cloudfront create-invalidation --distribution-id $$DIST --paths '/*' >/dev/null; \
+	echo "OK. https://$$($(TF) output -raw cloudfront_domain_name) (and https://careergame.com.br after DNS)"
 
 destroy:
+	@BUCKET=$$($(TF) output -raw s3_bucket_name 2>/dev/null); \
+	if [ -n "$$BUCKET" ]; then echo "Emptying s3://$$BUCKET"; aws s3 rm s3://$$BUCKET --recursive || true; fi; \
 	$(TF) destroy

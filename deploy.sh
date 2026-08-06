@@ -1,18 +1,16 @@
 #!/usr/bin/env bash
-# Publica o conteúdo estático (site/) no bucket GCS e invalida o cache do Cloud CDN.
-# Requer a infra já aplicada (ver infra/README.md).
+# Publish the static content (site/) to S3 and invalidate the CloudFront cache.
+# Requires the infra to be applied already (see README.md).
 set -euo pipefail
 cd "$(dirname "$0")"
 
-BUCKET=$(terraform -chdir=infra output -raw bucket_name)
-URLMAP=$(terraform -chdir=infra output -raw url_map_name)
+BUCKET=$(terraform -chdir=infra output -raw s3_bucket_name)
+DIST=$(terraform -chdir=infra output -raw cloudfront_distribution_id)
 
-echo "→ Sincronizando site/ para gs://$BUCKET"
-gcloud storage rsync site/ "gs://$BUCKET" \
-  --recursive \
-  --delete-unmatched-destination-objects
+echo "→ Syncing site/ to s3://$BUCKET"
+aws s3 sync site/ "s3://$BUCKET" --delete
 
-echo "→ Invalidando cache do Cloud CDN ($URLMAP)"
-gcloud compute url-maps invalidate-cdn-cache "$URLMAP" --path "/*" --async
+echo "→ Invalidating CloudFront cache ($DIST)"
+aws cloudfront create-invalidation --distribution-id "$DIST" --paths "/*" >/dev/null
 
-echo "✓ Publicado. https://careergame.com.br (aguarde DNS/cert/cache se recém-criado)"
+echo "✓ Published. https://careergame.com.br (allow DNS/cache to propagate if just created)"

@@ -1,27 +1,47 @@
-# ---------------------------------------------------------------------------
-# Cloud DNS managed zone + A records pointing apex & www to the load balancer.
-#
-# Phase A: `terraform apply -target=google_dns_managed_zone.zone` then delegate
-# the nameservers (output `nameservers`) at Registro.br. See infra/README.md.
-# ---------------------------------------------------------------------------
-resource "google_dns_managed_zone" "zone" {
-  name        = replace(var.domain_name, ".", "-")
-  dns_name    = "${var.domain_name}."
-  description = "CareerGame landing page"
+resource "aws_route53_zone" "this" {
+  name = var.domain_name
 }
 
-resource "google_dns_record_set" "apex" {
-  name         = "${var.domain_name}."
-  managed_zone = google_dns_managed_zone.zone.name
-  type         = "A"
-  ttl          = 300
-  rrdatas      = [google_compute_global_address.ip.address]
+resource "aws_route53_record" "apex_a" {
+  zone_id = aws_route53_zone.this.zone_id
+  name    = var.domain_name
+  type    = "A"
+  alias {
+    name                   = aws_cloudfront_distribution.this.domain_name
+    zone_id                = aws_cloudfront_distribution.this.hosted_zone_id
+    evaluate_target_health = false
+  }
 }
 
-resource "google_dns_record_set" "www" {
-  name         = "www.${var.domain_name}."
-  managed_zone = google_dns_managed_zone.zone.name
-  type         = "A"
-  ttl          = 300
-  rrdatas      = [google_compute_global_address.ip.address]
+resource "aws_route53_record" "apex_aaaa" {
+  zone_id = aws_route53_zone.this.zone_id
+  name    = var.domain_name
+  type    = "AAAA"
+  alias {
+    name                   = aws_cloudfront_distribution.this.domain_name
+    zone_id                = aws_cloudfront_distribution.this.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
+
+resource "aws_route53_record" "www_a" {
+  zone_id = aws_route53_zone.this.zone_id
+  name    = "www.${var.domain_name}"
+  type    = "A"
+  alias {
+    name                   = aws_cloudfront_distribution.this.domain_name
+    zone_id                = aws_cloudfront_distribution.this.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
+
+resource "aws_route53_record" "www_aaaa" {
+  zone_id = aws_route53_zone.this.zone_id
+  name    = "www.${var.domain_name}"
+  type    = "AAAA"
+  alias {
+    name                   = aws_cloudfront_distribution.this.domain_name
+    zone_id                = aws_cloudfront_distribution.this.hosted_zone_id
+    evaluate_target_health = false
+  }
 }
