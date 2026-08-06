@@ -155,6 +155,7 @@ const I18N = {
     "dp.t2": "Creditável no anual",
     "dp.t3": "60–90 dias",
     "dp.t4": "Desconto por logo",
+    "dp.termsaria": "Termos do piloto",
     "dp.cta": "Quero ser design partner",
     "dp.note": "Somos diretos sobre o momento: o núcleo já roda; pacotes prontos, níveis e cobrança estão sendo finalizados — por isso o preço travado e a sua voz no roadmap.",
 
@@ -362,6 +363,7 @@ const I18N = {
     "dp.t2": "Creditable toward annual",
     "dp.t3": "60–90 days",
     "dp.t4": "Logo discount",
+    "dp.termsaria": "Pilot terms",
     "dp.cta": "Become a design partner",
     "dp.note": "We're upfront about the stage: the core already runs; ready-made packages, levels and billing are being finalized — which is exactly why the price is locked and your voice shapes the roadmap.",
 
