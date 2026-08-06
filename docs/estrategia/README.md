@@ -11,6 +11,7 @@
 4. [Trilhas Prontas — Blueprint](04-trilhas-prontas-blueprint.md) — taxonomias, modelo de dados e 2 pacotes 100% prontos (Backend, CS).
 5. [Reformulação da Landing](05-landing-redesign.md) — nova estrutura, copy PT/EN e mockups de tela.
 6. [Diagnóstico do Produto (app)](06-diagnostico-app.md) — o que tcg-api/tcg-app já entregam, os gaps vs. estratégia e o roadmap (inclui o bloqueador de migração).
+7. [Kit de Outreach — Design Partners](07-design-partner-outreach.md) — ICP, sequência de outbound, roteiro de call e objeções para converter os primeiros 3–5 pilotos pagos. Asset: [one-pager](design-partner-onepager.html).
 
 ---
 

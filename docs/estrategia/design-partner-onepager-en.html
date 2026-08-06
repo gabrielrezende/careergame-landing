@@ -1,0 +1,376 @@
+<title>CareerGame — Founding Design Partner Program</title>
+<style>
+  :root {
+    /* neutrals — cool blue-ink bias, chosen not defaulted */
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --surface-2: #f4f6f9;
+    --ink: #0f1a24;
+    --text: #1c2a35;
+    --muted: #5a6b78;
+    --hair: #d7dee5;
+    --hair-strong: #c2ccd5;
+    /* single accent — gold = points / achievement (the game's reward color) */
+    --gold: #c8892a;
+    --gold-soft: #e7c983;
+    --gold-wash: #f6ecd8;
+    --good: #2f7d5b;
+    --shadow: 0 1px 2px rgba(15,26,36,.06), 0 8px 30px rgba(15,26,36,.07);
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
+    --maxw: 780px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c141d;
+      --surface: #131f2b;
+      --surface-2: #17242f;
+      --ink: #eaf0f4;
+      --text: #dbe4ea;
+      --muted: #90a1ad;
+      --hair: #263441;
+      --hair-strong: #33434f;
+      --gold: #e2ac48;
+      --gold-soft: #7a5c22;
+      --gold-wash: #21262a;
+      --good: #58b088;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 34px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f4; --surface: #ffffff; --surface-2: #f4f6f9; --ink: #0f1a24;
+    --text: #1c2a35; --muted: #5a6b78; --hair: #d7dee5; --hair-strong: #c2ccd5;
+    --gold: #c8892a; --gold-soft: #e7c983; --gold-wash: #f6ecd8; --good: #2f7d5b;
+    --shadow: 0 1px 2px rgba(15,26,36,.06), 0 8px 30px rgba(15,26,36,.07);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c141d; --surface: #131f2b; --surface-2: #17242f; --ink: #eaf0f4;
+    --text: #dbe4ea; --muted: #90a1ad; --hair: #263441; --hair-strong: #33434f;
+    --gold: #e2ac48; --gold-soft: #7a5c22; --gold-wash: #21262a; --good: #58b088;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 34px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+  h1, h2, h3 { font-family: var(--serif); color: var(--ink); text-wrap: balance; font-weight: 700; }
+  h1 { font-size: clamp(2.1rem, 5.4vw, 3.15rem); line-height: 1.08; letter-spacing: -.01em; margin: 0 0 18px; }
+  h2 { font-size: clamp(1.5rem, 3.4vw, 1.95rem); line-height: 1.14; margin: 0 0 14px; }
+  h3 { font-size: 1.16rem; line-height: 1.25; margin: 0 0 8px; }
+  p { margin: 0 0 16px; }
+  strong { color: var(--ink); font-weight: 600; }
+  a { color: var(--gold); text-decoration: none; }
+
+  /* ---- hero ---- */
+  header.hero {
+    background:
+      radial-gradient(120% 90% at 82% -10%, var(--gold-wash) 0%, transparent 55%),
+      var(--surface);
+    border-bottom: 1px solid var(--hair);
+  }
+  .hero-inner { padding: 68px 0 54px; }
+  .lede { font-size: 1.18rem; color: var(--muted); max-width: 62ch; margin: 0 0 34px; }
+  .lede strong { color: var(--text); }
+
+  /* career progression rail — the product-as-thesis */
+  .rail-label { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 12px; }
+  .rail-label span { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .rail-label .xp { color: var(--gold); font-variant-numeric: tabular-nums; }
+  .rail {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    padding: 8px 0 4px;
+  }
+  .rail::before {
+    content: ""; position: absolute; left: 6%; right: 6%; top: 19px; height: 3px;
+    background: var(--hair-strong); border-radius: 2px;
+  }
+  .rail::after {
+    content: ""; position: absolute; left: 6%; top: 19px; height: 3px; width: 0;
+    background: linear-gradient(90deg, var(--gold-soft), var(--gold)); border-radius: 2px;
+    animation: fill 1.5s cubic-bezier(.4,.1,.2,1) .25s forwards;
+  }
+  @keyframes fill { to { width: 44%; } }
+  .node { position: relative; display: flex; flex-direction: column; align-items: center; z-index: 1; }
+  .dot {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--surface); border: 3px solid var(--hair-strong);
+    margin-bottom: 10px;
+  }
+  .node.done .dot { background: var(--gold); border-color: var(--gold); }
+  .node.current .dot {
+    background: var(--surface); border-color: var(--gold);
+    box-shadow: 0 0 0 5px var(--gold-wash);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 5px var(--gold-wash); } 50% { box-shadow: 0 0 0 8px transparent; } }
+  .node .lvl { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--muted); }
+  .node .name { font-size: 13.5px; font-weight: 600; color: var(--text); margin-top: 1px; text-align:center; }
+  .node.current .name, .node.current .lvl { color: var(--gold); }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--sans); font-size: 15px; font-weight: 600;
+    padding: 13px 22px; border-radius: 10px; cursor: pointer; border: 1px solid transparent;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .btn-primary { background: var(--gold); color: #1a1204; box-shadow: var(--shadow); }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--hair-strong); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ---- generic section ---- */
+  section { padding: 52px 0; border-bottom: 1px solid var(--hair); }
+  .kicker { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  .kicker b { color: var(--gold); font-weight: 600; }
+
+  /* problem stat */
+  .stat-line { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 26px; }
+  .stat { background: var(--surface); border: 1px solid var(--hair); border-radius: 12px; padding: 18px 18px 16px; }
+  .stat .n { font-family: var(--serif); font-size: 1.7rem; color: var(--ink); font-weight: 700; line-height: 1; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+  .stat .t { font-size: 13.5px; color: var(--muted); line-height: 1.4; }
+
+  /* wedge checklist */
+  .wedge { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; margin-top: 22px; }
+  .wedge li { list-style: none; display: flex; gap: 11px; align-items: flex-start; font-size: 15.5px; }
+  .wedge { padding: 0; margin-left: 0; }
+  .check { flex: none; width: 21px; height: 21px; border-radius: 50%; background: var(--gold-wash); color: var(--gold); display: grid; place-items: center; margin-top: 2px; }
+  .check svg { width: 12px; height: 12px; }
+  .wedge b { color: var(--ink); }
+  .wedge span.sub { color: var(--muted); }
+  .versus { margin-top: 24px; font-size: 15px; color: var(--muted); border-left: 3px solid var(--gold-soft); padding: 4px 0 4px 16px; }
+  .versus b { color: var(--text); }
+
+  /* trails */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 26px; }
+  .chip { font-family: var(--mono); font-size: 12.5px; letter-spacing: .02em; padding: 7px 12px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--hair); color: var(--text); }
+  .trail-card { background: var(--surface); border: 1px solid var(--hair); border-radius: 14px; padding: 22px; box-shadow: var(--shadow); }
+  .trail-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; gap: 12px; }
+  .trail-head .area { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--gold); }
+  .badge-xp { font-family: var(--mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .comp { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-top: 1px solid var(--hair); font-size: 14.5px; }
+  .comp:first-of-type { border-top: none; }
+  .comp .name { flex: 1; color: var(--text); }
+  .comp .cat { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); background: var(--surface-2); padding: 2px 7px; border-radius: 5px; }
+  .bar { flex: none; width: 92px; height: 6px; border-radius: 3px; background: var(--hair-strong); overflow: hidden; }
+  .bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-soft), var(--gold)); }
+
+  /* offer card — conversion core */
+  .offer {
+    background: var(--surface);
+    border: 1px solid var(--hair-strong);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .offer-top { padding: 26px 28px 22px; border-bottom: 1px dashed var(--hair-strong); background: linear-gradient(180deg, var(--gold-wash), transparent); }
+  .offer-top .seal { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .offer-top h3 { margin: 8px 0 4px; font-size: 1.42rem; }
+  .offer-top p { margin: 0; color: var(--muted); font-size: 15px; }
+  .offer-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .offer-col { padding: 24px 28px; }
+  .offer-col + .offer-col { border-left: 1px solid var(--hair); }
+  .offer-col h4 { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 14px; color: var(--muted); font-weight: 600; }
+  .offer-col ul { margin: 0; padding: 0; }
+  .offer-col li { list-style: none; display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; line-height: 1.45; margin-bottom: 12px; }
+  .offer-col li:last-child { margin-bottom: 0; }
+  .mk { flex: none; margin-top: 3px; width: 16px; height: 16px; }
+  .mk.get { color: var(--good); }
+  .mk.ask { color: var(--gold); }
+  .terms { display: flex; flex-wrap: wrap; gap: 8px 10px; padding: 18px 28px; background: var(--surface-2); border-top: 1px solid var(--hair); }
+  .term { font-family: var(--mono); font-size: 12px; color: var(--text); font-variant-numeric: tabular-nums; display: inline-flex; align-items: center; gap: 7px; }
+  .term::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+
+  /* honesty note */
+  .honest { display: flex; gap: 14px; background: var(--surface-2); border: 1px solid var(--hair); border-radius: 12px; padding: 18px 20px; margin-top: 24px; }
+  .honest .mark { flex: none; font-family: var(--serif); font-size: 1.4rem; color: var(--gold); line-height: 1; }
+  .honest p { margin: 0; font-size: 14.5px; color: var(--muted); }
+  .honest b { color: var(--text); }
+
+  /* final cta */
+  section.final { text-align: center; border-bottom: none; padding: 60px 0 40px; }
+  section.final h2 { max-width: 20ch; margin-inline: auto; }
+  section.final p { color: var(--muted); max-width: 52ch; margin-inline: auto; }
+  footer { text-align: center; padding: 26px 0 48px; color: var(--muted); font-family: var(--mono); font-size: 12px; letter-spacing: .04em; }
+  footer a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+
+  @media (max-width: 620px) {
+    body { font-size: 16px; }
+    .stat-line, .wedge, .offer-grid { grid-template-columns: 1fr; }
+    .offer-col + .offer-col { border-left: none; border-top: 1px solid var(--hair); }
+    .node .name { font-size: 11px; }
+    .node .lvl { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rail::after { animation: none; width: 44%; }
+    .node.current .dot { animation: none; }
+    .btn { transition: none; }
+  }
+</style>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Founding Design Partner Program · 2026</p>
+    <h1>Turn careers into a game — and engagement into results.</h1>
+    <p class="lede">CareerGame is the <strong>white-label</strong> platform for gamified career development: <strong>ready-made</strong> skill trails by area, AI-guided development plans, and leaderboards that make teams actually grow. We're choosing the first teams to build with — and prove the results.</p>
+
+    <div class="rail-label">
+      <span>Career trail · Engineering</span>
+      <span class="xp">1,240 XP · next level in 260</span>
+    </div>
+    <div class="rail" role="img" aria-label="Career progression trail: Junior and Mid completed, Senior is the current level, Staff and Principal next.">
+      <div class="node done"><div class="dot"></div><div class="lvl">L1</div><div class="name">Junior</div></div>
+      <div class="node done"><div class="dot"></div><div class="lvl">L2</div><div class="name">Mid</div></div>
+      <div class="node current"><div class="dot"></div><div class="lvl">L3</div><div class="name">Senior</div></div>
+      <div class="node"><div class="dot"></div><div class="lvl">L4</div><div class="name">Staff</div></div>
+      <div class="node"><div class="dot"></div><div class="lvl">L5</div><div class="name">Principal</div></div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Founding%20Design%20Partner&body=Hello%2C%20I%27d%20like%20to%20talk%20about%20CareerGame%27s%20Founding%20Design%20Partner%20program.%20We%27re%20a%20company%20of%20___%20employees.">Book a 30-min call →</a>
+      <a class="btn btn-ghost" href="#offer">See the offer</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">The problem</p>
+    <h2>A development plan no one opens is expensive.</h2>
+    <p>A development plan buried in a forgotten spreadsheet becomes slow ramp-up, promotions without criteria, and talent that walks out. HR doesn't see who's stalled until the resignation lands. CareerGame flips the game: every step forward in a career is <strong>visible, rewarded and measurable</strong> — and leadership sees it all.</p>
+    <div class="stat-line">
+      <div class="stat"><div class="n">Months</div><div class="t">is what it takes to build a skills architecture from scratch in enterprise tools. In CareerGame: days.</div></div>
+      <div class="stat"><div class="n">1 spreadsheet</div><div class="t">is where most teams' development plans die — no follow-up, no incentive, no data.</div></div>
+      <div class="stat"><div class="n">200–2,000</div><div class="t">employees: the mid-market underserved by career tools, all of them expensive and slow.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">Why it's different · <b>the intersection no one owns</b></p>
+    <h2>Six things no competitor delivers together.</h2>
+    <p>The career-pathing leaders have skills AI, but zero gamification and nothing ready-made. Gamification engines have the mechanics, but aim at sales KPIs. LXPs treat gamification as course seasoning. CareerGame is the only one at the intersection:</p>
+    <ul class="wedge">
+      <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2l2.6 2.6L10 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Career as a game</b> <span class="sub">— the game loop designed for development, not sales KPIs.</span></span></li>
+      <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2l2.6 2.6L10 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Ready-made trails</b> <span class="sub">— by area, from Junior to Principal. Adopt today.</span></span></li>
+      <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2l2.6 2.6L10 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>White-label multi-tenant</b> <span class="sub">— your brand, your domain, isolated environment.</span></span></li>
+      <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2l2.6 2.6L10 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>AI that does, not decorates</b> <span class="sub">— reads the plan and assigns the right trails and cards.</span></span></li>
+      <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2l2.6 2.6L10 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Mid-market price and speed</b> <span class="sub">— no quote-only, no months-long project.</span></span></li>
+      <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2l2.6 2.6L10 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Built to resell</b> <span class="sub">— ideal for multi-brand groups and consultancies.</span></span></li>
+    </ul>
+    <p class="versus">We don't compete on "who has the best skills AI" (Gloat, Eightfold) or "who has the most content" (Go1, Skillsoft). We win on <b>framing, time-to-value, rebrandability and the career game loop</b>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">The differentiator</p>
+    <h2>The trails come ready. You just edit.</h2>
+    <p>Don't build your career architecture from scratch. CareerGame ships ready-made trails by area — with competencies, challenges and levels — that you adopt today and tailor tomorrow.</p>
+    <div class="chips">
+      <span class="chip">Backend</span><span class="chip">Frontend</span><span class="chip">Customer Success</span><span class="chip">Sales</span><span class="chip">Support</span><span class="chip">Product</span><span class="chip">Data</span><span class="chip">Marketing</span>
+    </div>
+    <div class="trail-card">
+      <div class="trail-head">
+        <span class="area">Trail · Backend · Senior (L3)</span>
+        <span class="badge-xp">5 competencies · 1,500 XP</span>
+      </div>
+      <div class="comp"><span class="cat">Craft</span><span class="name">Distributed systems design</span><span class="bar"><i style="width:80%"></i></span></div>
+      <div class="comp"><span class="cat">Execution</span><span class="name">Observability &amp; reliability</span><span class="bar"><i style="width:65%"></i></span></div>
+      <div class="comp"><span class="cat">Collaboration</span><span class="name">Code review &amp; technical mentoring</span><span class="bar"><i style="width:70%"></i></span></div>
+      <div class="comp"><span class="cat">Impact</span><span class="name">Architecture trade-offs on the business</span><span class="bar"><i style="width:45%"></i></span></div>
+      <div class="comp"><span class="cat">Leadership</span><span class="name">Driving technical projects</span><span class="bar"><i style="width:30%"></i></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="offer">
+  <div class="wrap">
+    <p class="kicker">The offer</p>
+    <h2>Be one of the first. Shape the product and prove the results.</h2>
+    <p>We're selecting <strong>3 to 5 mid-market companies</strong> as Founding Design Partners. You come in early, with locked pricing and a roadmap driven by your priorities — and you walk out with your team's career development gamified and measured.</p>
+
+    <div class="offer">
+      <div class="offer-top">
+        <div class="seal">◆ Founding Design Partner</div>
+        <h3>Paid 60–90 day pilot, creditable toward the contract.</h3>
+        <p>Led by the founder. No free tier, no months-long project.</p>
+      </div>
+      <div class="offer-grid">
+        <div class="offer-col">
+          <h4>What you get</h4>
+          <ul>
+            <li><svg class="mk get" viewBox="0 0 16 16" fill="none"><path d="M3 8.3l3.2 3.2L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Your area's ready-made trails</b>, configured with you.</span></li>
+            <li><svg class="mk get" viewBox="0 0 16 16" fill="none"><path d="M3 8.3l3.2 3.2L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Locked founding-partner pricing</b> for the annual contract.</span></li>
+            <li><svg class="mk get" viewBox="0 0 16 16" fill="none"><path d="M3 8.3l3.2 3.2L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>A co-built roadmap</b> — your priorities go first.</span></li>
+            <li><svg class="mk get" viewBox="0 0 16 16" fill="none"><path d="M3 8.3l3.2 3.2L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Setup, branding and onboarding</b> led by the founder.</span></li>
+          </ul>
+        </div>
+        <div class="offer-col">
+          <h4>What we ask</h4>
+          <ul>
+            <li><svg class="mk ask" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.4" stroke="currentColor" stroke-width="1.6"/></svg><span>One team or BU of <b>100–300 people</b> actually live.</span></li>
+            <li><svg class="mk ask" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.4" stroke="currentColor" stroke-width="1.6"/></svg><span>Access to <b>pilot metrics</b> (adoption, ramp, retention) for the case study.</span></li>
+            <li><svg class="mk ask" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.4" stroke="currentColor" stroke-width="1.6"/></svg><span><b>Use of your logo + 1 testimonial</b> at the end, if the metrics come.</span></li>
+            <li><svg class="mk ask" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.4" stroke="currentColor" stroke-width="1.6"/></svg><span>Two <b>feedback checkpoints</b> per month with the team.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="terms">
+        <span class="term">Paid pilot US$ 5–15k</span>
+        <span class="term">Creditable toward annual</span>
+        <span class="term">60–90 days</span>
+        <span class="term">Annual billing after</span>
+        <span class="term">Logo discount</span>
+      </div>
+    </div>
+
+    <div class="honest">
+      <div class="mark">‡</div>
+      <p><b>We're straight about the stage.</b> The core — multi-tenant, skills tree, trail-by-role, points/ranking engine, development plans and AI analysis — already runs. As a design partner, you come in while ready-made packages, levels and billing are being finalized: that's why the price is locked and you have a voice in the roadmap. You're not a list-price customer — you're a co-author of the product.</p>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <p class="kicker" style="justify-content:center">Let's talk</p>
+    <h2>Ready to turn careers into a game?</h2>
+    <p>A 30-minute conversation: we show the product live and design what a pilot would look like for your team. No commitment.</p>
+    <div class="cta-row" style="justify-content:center; margin-top:26px">
+      <a class="btn btn-primary" href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Founding%20Design%20Partner&body=Hello%2C%20I%27d%20like%20to%20talk%20about%20CareerGame%27s%20Founding%20Design%20Partner%20program.%20We%27re%20a%20company%20of%20___%20employees.">Book a 30-min call →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  CareerGame · careergame.com.br · Gamified, white-label career development · <a href="mailto:gmrezende91@gmail.com?subject=%5BCareerGame%5D%20Founding%20Design%20Partner">gmrezende91@gmail.com</a>
+</footer>
+
+<script>
+  // No dynamic behavior required; rail fills via CSS animation on load.
+  // Kept minimal by design — the page is a static asset.
+</script>
