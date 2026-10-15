@@ -2,6 +2,11 @@
 
 Levantamento read-only de **tcg-api** (backend, FastAPI/SQLAlchemy/Lambda) e **tcg-app** (frontend, React+AntD+Zustand) em ago/2026, cruzado com o blueprint do [doc 04](04-trilhas-prontas-blueprint.md) e o posicionamento dos docs 01–02. Caminhos relativos às raízes de cada repo.
 
+> **Atualização (out/2026):**
+> - **Catálogo de Pacotes, fase 1 concluída no backend.** As tasks 3–9 da seção 6.3 foram implementadas no branch `development` do tcg-api: `company_package`, `level_card`, `leveling.py`, `catalog.py` (`provision_package`), router `/{company_id}/catalog`, seed do pacote Foundation e a migration `catalogpkg1`. **O bloqueador crítico de migração está resolvido.** O frontend ainda não tem catálogo nem fluxo de adoção.
+> - **Auth Firebase pronta nos dois lados:** `AUTH_MODE=firebase` na API (resolve por `Person.auth_sub`) e login por e-mail/Google no app, mais o script de importação de usuários com hash bcrypt.
+> - **Infra: nada no ar.** Não existe stack SAM/Lambda, Amplify nem a landing na AWS. O projeto GCP `careergame-504500` foi enviado para exclusão em 2026-10-04, e o Terraform de Cloud Run + Cloud SQL (`tcg-api/infra/gcp`) nunca foi aplicado. Os alvos de deploy continuam sem definição (ver 6.5).
+
 ## 6.1 Veredito
 
 O núcleo do produto **existe e é razoavelmente maduro**: multi-tenant por `company_id`, árvore de conhecimento (Skill→CardClass→CardCategory→Card), trilha de carreira (Trail + `trail_office` ordenado), motor de pontos/ranking robusto (`points.py`), PDI, e análise por **GPT-4o** já rodando. O tema por tenant também existe (`CompanyTheme`, ~70 tokens AntD).
@@ -69,8 +74,8 @@ O backend **já tem spec e plano** para os pacotes prontos: `docs/superpowers/sp
 ## 6.6 Roadmap sugerido (ordem)
 
 **Fase 0 — Destravar o que já existe (rápido, alto valor)**
-1. **Escrever a migração Alembic** das tabelas `template_*` + `company_package` + `level_card` + colunas de linhagem (Task 9). Sem isso nada de pacotes vai a prod. *(bloqueador #1)*
-2. Terminar **Tasks 3–8**: `company_package`, `level_card`, `leveling.py`, **`catalog.py` (provision_package)**, router de catálogo, `seed_templates.py` + **autorar o 1º pacote real** (Foundation ou Backend, do doc 04).
+1. ✅ *(feito, out/2026)* **Escrever a migração Alembic** das tabelas `template_*` + `company_package` + `level_card` + colunas de linhagem (Task 9). Sem isso nada de pacotes vai a prod. *(bloqueador #1)*
+2. ✅ *(feito no backend, out/2026; falta autorar pacotes além do Foundation)* Terminar **Tasks 3–8**: `company_package`, `level_card`, `leveling.py`, **`catalog.py` (provision_package)**, router de catálogo, `seed_templates.py` + **autorar o 1º pacote real** (Foundation ou Backend, do doc 04).
 
 **Fase 1 — Tornar os pacotes usáveis (produto)**
 3. Frontend: **catálogo + fluxo de adoção** + **CRUD completo** de autoria (editar/excluir/reordenar) sobre a árvore.

@@ -1,8 +1,13 @@
 # careergame-landing
 
-Landing institucional do **CareerGame** — publicada em `https://careergame.com.br` como site
-estático na **AWS**: bucket **S3 privado** atrás do **CloudFront (OAC)** com **HTTPS/ACM** e
-**Route53**, provisionado com **Terraform** (`us-east-1`).
+Landing institucional do **CareerGame**, posicionada para captar **Founding Design Partners**.
+Site estático pensado para `https://careergame.com.br` na **AWS**: bucket **S3 privado** atrás
+do **CloudFront (OAC)** com **HTTPS/ACM** e **Route53**, provisionado com **Terraform** (`us-east-1`).
+
+> **Estado (out/2026): não está publicada.** O Terraform em `infra/` nunca foi aplicado (state
+> vazio): não existem bucket, distribuição, certificado nem zona Route53 da careergame na conta.
+> O projeto GCP antigo (`careergame-504500`) foi enviado para exclusão em 2026-10-04. Para
+> publicar, siga o deploy abaixo do zero.
 
 ## Estrutura
 
@@ -10,9 +15,12 @@ estático na **AWS**: bucket **S3 privado** atrás do **CloudFront (OAC)** com *
 site/          conteúdo estático (index.html, styles.css, main.js, assets/)
 infra/         Terraform (S3 privado + CloudFront/OAC + ACM + Route53)
 deploy.sh      aws s3 sync + invalidação do CloudFront
-.gcp-legacy/   config Firebase antiga (fallback) — não usada
-.aws-legacy/   state AWS de uma migração anterior — só referência
+Makefile       atalhos (init/plan/apply/deploy/destroy)
+docs/          estudo de negócio e estratégia (docs/estrategia/) + spec da landing
+.gcp-legacy/   config Firebase antiga (fallback, fora do git) — não usada
 ```
+
+Ver o índice da estratégia em [`docs/estrategia/README.md`](docs/estrategia/README.md).
 
 ## Pré-requisitos
 
