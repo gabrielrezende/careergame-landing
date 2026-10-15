@@ -2,8 +2,8 @@
 
 Levantamento read-only de **tcg-api** (backend, FastAPI/SQLAlchemy/Lambda) e **tcg-app** (frontend, React+AntD+Zustand) em ago/2026, cruzado com o blueprint do [doc 04](04-trilhas-prontas-blueprint.md) e o posicionamento dos docs 01–02. Caminhos relativos às raízes de cada repo.
 
-> **Atualização (out/2026):**
-> - **Catálogo de Pacotes, fase 1 concluída no backend.** As tasks 3–9 da seção 6.3 foram implementadas no branch `development` do tcg-api: `company_package`, `level_card`, `leveling.py`, `catalog.py` (`provision_package`), router `/{company_id}/catalog`, seed do pacote Foundation e a migration `catalogpkg1`. **O bloqueador crítico de migração está resolvido.** O frontend ainda não tem catálogo nem fluxo de adoção.
+> **Atualização (out/2026) — projeto pausado.** Os três repos (landing, tcg-api, tcg-app) foram congelados na `main` em 2026-10-15, com os READMEs atualizados e uma seção "Para retomar".
+> - **Catálogo de Pacotes, fase 1 concluída no backend.** As tasks 3–9 da seção 6.3 foram implementadas no branch `development` do tcg-api: `company_package`, `level_card`, `leveling.py`, `catalog.py` (`provision_package`), router `/{company_id}/catalog`, seed do pacote Foundation e a migration `catalogpkg1`. **O bloqueador crítico de migração está resolvido.** As duas heads do Alembic foram unidas (`b1f2c3d4e5f6`, validada em Postgres 16). Um banco novo deve ser criado com `create_all` + `alembic stamp head`, porque a cadeia histórica não roda num banco vazio. O frontend ainda não tem catálogo nem fluxo de adoção.
 > - **Auth Firebase pronta nos dois lados:** `AUTH_MODE=firebase` na API (resolve por `Person.auth_sub`) e login por e-mail/Google no app, mais o script de importação de usuários com hash bcrypt.
 > - **Infra: nada no ar.** Não existe stack SAM/Lambda, Amplify nem a landing na AWS. O projeto GCP `careergame-504500` foi enviado para exclusão em 2026-10-04, e o Terraform de Cloud Run + Cloud SQL (`tcg-api/infra/gcp`) nunca foi aplicado. Os alvos de deploy continuam sem definição (ver 6.5).
 

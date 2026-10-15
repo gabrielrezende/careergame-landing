@@ -4,7 +4,7 @@ Landing institucional do **CareerGame**, posicionada para captar **Founding Desi
 Site estático pensado para `https://careergame.com.br` na **AWS**: bucket **S3 privado** atrás
 do **CloudFront (OAC)** com **HTTPS/ACM** e **Route53**, provisionado com **Terraform** (`us-east-1`).
 
-> **Estado (out/2026): não está publicada.** O Terraform em `infra/` nunca foi aplicado (state
+> **Projeto pausado em out/2026: não está publicada.** O conteúdo está congelado na `main`. O Terraform em `infra/` nunca foi aplicado (state
 > vazio): não existem bucket, distribuição, certificado nem zona Route53 da careergame na conta.
 > O projeto GCP antigo (`careergame-504500`) foi enviado para exclusão em 2026-10-04. Para
 > publicar, siga o deploy abaixo do zero.

@@ -10,7 +10,7 @@
 3. [Parceiros & Go-to-Market](03-parceiros-e-gtm.md) — integrações, marketplaces, conteúdo e a sequência de GTM para 12 meses.
 4. [Trilhas Prontas — Blueprint](04-trilhas-prontas-blueprint.md) — taxonomias, modelo de dados e 2 pacotes 100% prontos (Backend, CS).
 5. [Reformulação da Landing](05-landing-redesign.md) — nova estrutura, copy PT/EN e mockups de tela.
-6. [Diagnóstico do Produto (app)](06-diagnostico-app.md) — o que tcg-api/tcg-app já entregam, os gaps vs. estratégia e o roadmap. Atualizado em out/2026: catálogo fase 1 pronto no backend e nenhuma infra no ar.
+6. [Diagnóstico do Produto (app)](06-diagnostico-app.md) — o que tcg-api/tcg-app já entregam, os gaps vs. estratégia e o roadmap. Atualizado em out/2026: catálogo fase 1 pronto no backend, nenhuma infra no ar e **projeto pausado**.
 7. [Kit de Outreach — Design Partners](07-design-partner-outreach.md) — ICP, sequência de outbound, roteiro de call e objeções para converter os primeiros 3–5 pilotos pagos. Asset: [one-pager](design-partner-onepager.html).
 
 ---
