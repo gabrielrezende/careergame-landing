@@ -1,5 +1,7 @@
 # CareerGame — Estudo de Negócio & Estratégia
 
+> 📘 Visão consolidada do produto (motivo, missão, público, status e como retomar): [PRODUTO.md](../../PRODUTO.md).
+
 > Consolidação da pesquisa de mercado (concorrentes, precificação, parceiros/GTM e trilhas prontas) + plano de reformulação da landing page.
 > Direção travada nesta fase: **mercado global · mid-market (200–2.000 colaboradores) · SaaS por assinatura com trilhas prontas.**
 

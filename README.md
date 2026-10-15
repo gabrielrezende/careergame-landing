@@ -1,5 +1,7 @@
 # careergame-landing
 
+> 📘 **Produto (motivo, missão, para quem, o que atende, onde parou): [PRODUTO.md](PRODUTO.md).**
+
 Landing institucional do **CareerGame**, posicionada para captar **Founding Design Partners**.
 Site estático pensado para `https://careergame.com.br` na **AWS**: bucket **S3 privado** atrás
 do **CloudFront (OAC)** com **HTTPS/ACM** e **Route53**, provisionado com **Terraform** (`us-east-1`).
